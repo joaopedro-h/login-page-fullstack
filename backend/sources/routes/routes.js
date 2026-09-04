@@ -1,15 +1,8 @@
 import {Router} from "express";
+import RegisterController from "../controllers/RegisterController";
 
 const routes = new Router();
 
-routes.post("/teste", (req, res) => {
-
-    return res.json({
-        message: "Ok"
-    });
-    
-});
-
-
+routes.post("/register/user", RegisterController.store);
 
 export default routes;
