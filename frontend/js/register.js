@@ -10,6 +10,11 @@ async function register(event) {
     const password = document.getElementById('password').value;
     const confirmPassword = document.getElementById('confirmPassword').value;
 
+    if (password != confirmPassword) {
+        alert('As senhas não coincidem.');
+        return;       
+    }
+
     const response = await fetch("http://localhost:3333/register/user", {
 
         method: "POST",
@@ -26,5 +31,9 @@ async function register(event) {
         })
 
     });
+
+    const data = await response.json();
+
+    console.log(data);
 
 }
